@@ -1,0 +1,133 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "ToDoList.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ToDoList.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ToDoList.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Application.dll": {}
+        }
+      },
+      "ToDoList.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ToDoList.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Domain.dll": {}
+        }
+      },
+      "ToDoList.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ToDoList.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ToDoList.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ToDoList.Application/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Application/ToDoList.Application.csproj",
+      "msbuildProject": "../ToDoList.Application/ToDoList.Application.csproj"
+    },
+    "ToDoList.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Domain/ToDoList.Domain.csproj",
+      "msbuildProject": "../ToDoList.Domain/ToDoList.Domain.csproj"
+    },
+    "ToDoList.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Infrastructure/ToDoList.Infrastructure.csproj",
+      "msbuildProject": "../ToDoList.Infrastructure/ToDoList.Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "ToDoList.Application >= 1.0.0",
+      "ToDoList.Domain >= 1.0.0",
+      "ToDoList.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\victor.eiras\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.CrossCutting\\ToDoList.CrossCutting.csproj",
+      "projectName": "ToDoList.CrossCutting",
+      "projectPath": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.CrossCutting\\ToDoList.CrossCutting.csproj",
+      "packagesPath": "C:\\Users\\victor.eiras\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.CrossCutting\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\victor.eiras\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Application\\ToDoList.Application.csproj": {
+              "projectPath": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Application\\ToDoList.Application.csproj"
+            },
+            "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Domain\\ToDoList.Domain.csproj": {
+              "projectPath": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Domain\\ToDoList.Domain.csproj"
+            },
+            "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Infrastructure\\ToDoList.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\victor.eiras\\Desktop\\Victor\\Dev\\ToDoList\\ToDoList.Infrastructure\\ToDoList.Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.405\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

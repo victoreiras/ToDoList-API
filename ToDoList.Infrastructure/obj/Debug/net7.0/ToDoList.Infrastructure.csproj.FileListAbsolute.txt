@@ -1,0 +1,15 @@
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\bin\Debug\net7.0\ToDoList.Infrastructure.deps.json
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\bin\Debug\net7.0\ToDoList.Infrastructure.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\bin\Debug\net7.0\ToDoList.Infrastructure.pdb
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.AssemblyInfo.cs
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\refint\ToDoList.Infrastructure.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.pdb
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ref\ToDoList.Infrastructure.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\bin\Debug\net7.0\ToDoList.Domain.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\bin\Debug\net7.0\ToDoList.Domain.pdb
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Infrastructure\obj\Debug\net7.0\ToDoList.Infrastructure.csproj.CopyComplete

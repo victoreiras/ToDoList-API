@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ToDoList.CrossCutting/1.0.0": {
+        "dependencies": {
+          "ToDoList.Application": "1.0.0",
+          "ToDoList.Domain": "1.0.0",
+          "ToDoList.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ToDoList.CrossCutting.dll": {}
+        }
+      },
+      "ToDoList.Application/1.0.0": {
+        "dependencies": {
+          "ToDoList.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ToDoList.Application.dll": {}
+        }
+      },
+      "ToDoList.Domain/1.0.0": {
+        "runtime": {
+          "ToDoList.Domain.dll": {}
+        }
+      },
+      "ToDoList.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ToDoList.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ToDoList.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ToDoList.CrossCutting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToDoList.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToDoList.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToDoList.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
