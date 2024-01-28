@@ -33,3 +33,6 @@ C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\obj\Debug\net7.0\
 C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\obj\Debug\net7.0\ref\ToDoList.Api.dll
 C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\bin\Debug\net7.0\ToDoList.Domain.dll
 C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\bin\Debug\net7.0\ToDoList.Domain.pdb
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\bin\Debug\net7.0\ToDoList.Application.dll
+C:\Users\victor.eiras\Desktop\Victor\Dev\ToDoList\ToDoList.Api\bin\Debug\net7.0\ToDoList.Application.pdb

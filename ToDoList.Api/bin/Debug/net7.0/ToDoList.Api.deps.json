@@ -10,10 +10,22 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.15",
           "Swashbuckle.AspNetCore": "6.5.0",
+          "ToDoList.Application": "1.0.0",
           "ToDoList.Domain": "1.0.0"
         },
         "runtime": {
           "ToDoList.Api.dll": {}
+        }
+      },
+      "AutoMapper/12.0.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
         }
       },
       "Microsoft.AspNetCore.OpenApi/7.0.15": {
@@ -27,6 +39,7 @@
           }
         }
       },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
       "Microsoft.OpenApi/1.4.3": {
         "runtime": {
@@ -74,6 +87,15 @@
           }
         }
       },
+      "ToDoList.Application/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "ToDoList.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ToDoList.Application.dll": {}
+        }
+      },
       "ToDoList.Domain/1.0.0": {
         "runtime": {
           "ToDoList.Domain.dll": {}
@@ -87,12 +109,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "path": "automapper/12.0.1",
+      "hashPath": "automapper.12.0.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.OpenApi/7.0.15": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-5AnwJuy7lBaoDhos9SYzLxsGO/s8LsAnP1DR0JSUp1zGzBGnHJEgT4IafAk24PnveKgkiVwh77t5+dU652rwxA==",
       "path": "microsoft.aspnetcore.openapi/7.0.15",
       "hashPath": "microsoft.aspnetcore.openapi.7.0.15.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
@@ -135,6 +171,11 @@
       "sha512": "sha512-OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    },
+    "ToDoList.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ToDoList.Domain/1.0.0": {
       "type": "project",
