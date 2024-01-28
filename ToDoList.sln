@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Application", "ToDoList.Application\ToDoList.Application.csproj", "{4E59CB99-15D3-45CE-AE82-222130479E24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.CrossCutting", "ToDoList.CrossCutting\ToDoList.CrossCutting.csproj", "{13E19593-50C9-43B6-9C8E-FE152DFBDC90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.IoC", "ToDoList.IoC\ToDoList.IoC.csproj", "{13E19593-50C9-43B6-9C8E-FE152DFBDC90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
