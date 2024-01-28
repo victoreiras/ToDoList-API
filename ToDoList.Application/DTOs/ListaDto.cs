@@ -13,4 +13,6 @@ public record ListaDto
     [MaxLength(100)]
     [DisplayName("Nome da lista")]
     public string Nome { get; set; }
+
+    //public List<TarefaDto> Tarefas { get; set; } = new List<TarefaDto>();
 }
