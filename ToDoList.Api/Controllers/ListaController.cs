@@ -15,9 +15,9 @@ public class ListaController : ControllerBase
     }
 
     [HttpGet(Name = "ObterListasDoUsuario")]
-    public IActionResult ObterListasDoUsuario(int idUsuario)
+    public async Task<IActionResult> ObterListasDoUsuario(int idUsuario)
     {
-        var listas = _listaService.ObterListasDoUsuario(idUsuario);
+        var listas = await _listaService.ObterListasDoUsuarioAsync(idUsuario);
         return Ok(listas);
     }
 }

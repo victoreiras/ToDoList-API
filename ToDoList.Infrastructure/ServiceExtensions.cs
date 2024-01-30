@@ -19,5 +19,13 @@ public static class ServiceExtensions
 
         services.AddScoped<IListaRepository, ListaRepository>();
         services.AddScoped<IListaService, ListaService>();
+        services.AddScoped<ICacheRepository, RedisRepository>();
+
+        services.AddDistributedRedisCache(o =>
+        {
+            o.InstanceName = "instance";
+            o.Configuration = "localhost:6379";
+        });
+
     }
 }

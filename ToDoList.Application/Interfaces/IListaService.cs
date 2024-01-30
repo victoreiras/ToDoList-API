@@ -4,7 +4,7 @@ namespace ToDoList.Application.Interfaces;
 
 public interface IListaService
 {
-    List<ListaDto> ObterListasDoUsuario(int idUsuario);
+    Task<List<ListaDto>> ObterListasDoUsuarioAsync(int idUsuario);
     // Lista ObterListaPorId(int id);
     // void Criar(Lista lista);
     // void Atualizar(Lista lista);
