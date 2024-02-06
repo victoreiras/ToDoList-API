@@ -6,6 +6,7 @@ using ToDoList.Domain.interfaces;
 using ToDoList.Infrastructure.Repositories;
 using ToDoList.Application.Interfaces;
 using ToDoList.Application.Services;
+using AutoMapper;
 
 namespace ToDoList.Infrastructure;
 
@@ -20,6 +21,9 @@ public static class ServiceExtensions
         services.AddScoped<IListaRepository, ListaRepository>();
         services.AddScoped<IListaService, ListaService>();
         services.AddScoped<ICacheRepository, RedisRepository>();
+        services.AddScoped<IMapper, Mapper>();
+
+
 
         services.AddDistributedRedisCache(o =>
         {
