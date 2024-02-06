@@ -10,7 +10,12 @@ public class Lista
     public int Id { get; private set; }
     public string Nome { get; private set; }
     public DateTime DataCriacao { get; private set; } = DateTime.Now;
-    public IEnumerable<Tarefa> Tarefas { get; private set; } = new List<Tarefa>();
+    public List<Tarefa> Tarefas { get; private set; } = new List<Tarefa>();
+
+    public void AdicionarTarefa(Tarefa tarefa)
+    {
+        Tarefas.Add(tarefa);
+    }
 
     public void AlterarNome(string nome)
     {

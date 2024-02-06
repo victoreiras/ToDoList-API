@@ -11,15 +11,13 @@ public class ListaTeste
     {
         //Arrange
         _lista = new Lista("Lista Teste");
-        var tarefas = new List<Tarefa>
-        {
-            new Tarefa("Tarefa 1"),
-            new Tarefa("Tarefa 2"),
-            new Tarefa("Tarefa 3")
-        };
+        _lista.AdicionarTarefa(new Tarefa("Tarefa 1"));
+        _lista.AdicionarTarefa(new Tarefa("Tarefa 2"));
+        _lista.AdicionarTarefa(new Tarefa("Tarefa 3"));
+        _lista.Tarefas[0].ConcluirTarefa();
+        _lista.Tarefas[1].ConcluirTarefa();
 
-        tarefas[0].ConcluirTarefa();
-        tarefas[1].ConcluirTarefa();
+      
     }
 
     [Fact]
