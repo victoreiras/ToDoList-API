@@ -19,14 +19,25 @@ public class ListaService : IListaService
         _cacheRepository = cacheRepository;
     }
 
-    public async Task<List<ListaDto>> ObterListasDoUsuarioAsync(int idUsuario)
+    public async Task<ServiceResponse<List<ListaDto>>> ObterListasDoUsuarioAsync(int idUsuario)
     {
-        var listasCache = await _cacheRepository.GetAsync<List<Lista>>(idUsuario.ToString());
+        var serviceResponse = new ServiceResponse<List<ListaDto>>();
 
-        if (listasCache != null)
-            return _mapper.Map<List<ListaDto>>(listasCache);
+        try
+        {
+            var resultado = await _cacheRepository.GetAsync<List<Lista>>(idUsuario.ToString());
 
-        var listasSql = await _listaRepository.ObterListasDoUsuarioAsync(idUsuario);
-        return _mapper.Map<List<ListaDto>>(listasSql);
+            if (resultado is null)
+                resultado = await _listaRepository.ObterListasDoUsuarioAsync(idUsuario);
+
+            serviceResponse.Dados = _mapper.Map<List<ListaDto>>(resultado);
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
     }
 }
