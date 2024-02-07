@@ -16,8 +16,6 @@ public class ListaTeste
         _lista.AdicionarTarefa(new Tarefa("Tarefa 3"));
         _lista.Tarefas[0].ConcluirTarefa();
         _lista.Tarefas[1].ConcluirTarefa();
-
-      
     }
 
     [Fact]
