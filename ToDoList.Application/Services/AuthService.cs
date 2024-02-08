@@ -16,6 +16,45 @@ public class AuthService : IAuthService
         _senhaService = senhaService;
     }
 
+    public async Task<ServiceResponse<string>> Login(LoginDto loginDto)
+    {
+        var serviceResponse = new ServiceResponse<string>();
+
+        try
+        {
+            var usuario = await _usuarioRepository.ObterUsuarioPorEmail(loginDto.Email);
+
+            if (usuario is null)
+            {
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Credenciais inválida";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+            if (!_senhaService.VerificaSenhaHashValida(loginDto.Senha, usuario.SenhaHash, usuario.SenhaSalt))
+            {
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Credenciais inválida";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+            var token = _senhaService.GerarToken(usuario);
+
+            serviceResponse.Dados = token;
+            serviceResponse.Mensagem = "Usuário logado com sucesso";
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Dados = null;
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
+    }
+
     public async Task<ServiceResponse<UsuarioDto>> Registrar(UsuarioDto usuarioDto)
     {
         var serviceResponse = new ServiceResponse<UsuarioDto>();
@@ -57,4 +96,5 @@ public class AuthService : IAuthService
 
         return false;
     }
+
 }
