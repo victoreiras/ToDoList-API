@@ -5,8 +5,8 @@ namespace ToDoList.Domain.interfaces;
 public interface IListaRepository
 {
     Task<List<Lista>> ObterListasDoUsuarioAsync(int idUsuario);
-    Lista ObterListaPorId(int id);
-    void Criar(Lista lista);
-    void Atualizar(Lista lista);
-    void Remover(Lista lista);
+    Task<Lista> ObterListaPorIdAsync(int id);
+    Task CriarAsync(Lista lista);
+    Task AtualizarAsync(Lista lista);
+    Task RemoverAsync(Lista lista);
 }

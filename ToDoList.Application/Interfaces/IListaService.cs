@@ -6,7 +6,7 @@ public interface IListaService
 {
     Task<ServiceResponse<List<ListaDto>>> ObterListasDoUsuarioAsync(int idUsuario);
     // Lista ObterListaPorId(int id);
-    // void Criar(Lista lista);
-    // void Atualizar(Lista lista);
-    // void Remover(Lista lista);
+    Task<ServiceResponse<ListaDto>> CriarListaAsync(string nome);
+    Task<ServiceResponse<ListaDto>> EditarListaAsync(ListaDto lista);
+    Task<ServiceResponse<bool>> ExcluirListaAsync(int idLista);
 }

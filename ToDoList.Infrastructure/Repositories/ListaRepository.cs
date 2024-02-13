@@ -8,27 +8,27 @@ namespace ToDoList.Infrastructure.Repositories;
 public class ListaRepository : IListaRepository
 {
     private readonly ApplicationDbContext _db;
-    private readonly ICacheRepository _cache;
 
-    public ListaRepository(ApplicationDbContext db, ICacheRepository cacheService)
+    public ListaRepository(ApplicationDbContext db)
     {
         _db = db;
-        _cache = cacheService;
     }
 
-    public void Atualizar(Lista lista)
+    public async Task AtualizarAsync(Lista lista)
     {
-        throw new NotImplementedException();
+        _db.Listas.Update(lista);
+        await _db.SaveChangesAsync();
     }
 
-    public void Criar(Lista lista)
+    public async Task CriarAsync(Lista lista)
     {
-        throw new NotImplementedException();
+        _db.Listas.Add(lista);
+        await _db.SaveChangesAsync();
     }
 
-    public Lista ObterListaPorId(int id)
+    public async Task<Lista> ObterListaPorIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _db.Listas.FirstOrDefaultAsync(q => q.Id == id);
     }
 
     public async Task<List<Lista>> ObterListasDoUsuarioAsync(int idUsuario)
@@ -36,8 +36,9 @@ public class ListaRepository : IListaRepository
         return await _db.Listas.ToListAsync();
     }
 
-    public void Remover(Lista lista)
+    public async Task RemoverAsync(Lista lista)
     {
-        throw new NotImplementedException();
+        _db.Listas.Remove(lista);
+        await _db.SaveChangesAsync();
     }
 }
