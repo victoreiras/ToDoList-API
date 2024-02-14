@@ -27,6 +27,12 @@ public class TarefaRepository : ITarefaRepository
         await _db.SaveChangesAsync();
     }
 
+    public async Task ExcluirTarefaAsync(Tarefa tarefa)
+    {
+        _db.Tarefas.Remove(tarefa);
+        await _db.SaveChangesAsync();
+    }
+
     public async Task<Tarefa> ObterTarefaPorIdAsync(int idTarefa)
     {
         return await _db.Tarefas.FirstOrDefaultAsync(q => q.Id == idTarefa);

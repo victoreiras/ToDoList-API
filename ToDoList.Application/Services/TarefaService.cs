@@ -109,8 +109,33 @@ public class TarefaService : ITarefaService
         return serviceResponse;
     }
 
-    public Task<ServiceResponse<bool>> ExcluirTarefaAsync(int idTarefa)
+    public async Task<ServiceResponse<bool>> ExcluirTarefaAsync(int idTarefa)
     {
-        throw new NotImplementedException();
+        var serviceResponse = new ServiceResponse<bool>();
+
+        try
+        {
+            var tarefa = await _tarefaRepository.ObterTarefaPorIdAsync(idTarefa);
+
+            if (tarefa is null)
+            {
+                serviceResponse.Mensagem = "Não existe Tarefa com esse Id";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+            await _tarefaRepository.ExcluirTarefaAsync(tarefa);
+
+            serviceResponse.Dados = true;
+            serviceResponse.Mensagem = "Tarefa criada com sucesso";
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Dados = false;
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
     }
 }

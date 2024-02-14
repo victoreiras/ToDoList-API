@@ -35,4 +35,11 @@ public class TarefaController : ControllerBase
         var tarefaEditada = await _tarefaService.EditarTarefaAsync(tarefaDto);
         return Ok(tarefaEditada);
     }
+
+    [HttpDelete(Name = "excluirTarefa")]
+    public async Task<IActionResult> ExcluirTarefa(int idTarefa)
+    {
+        await _tarefaService.ExcluirTarefaAsync(idTarefa);
+        return Ok();
+    }
 }
