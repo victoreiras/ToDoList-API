@@ -1,4 +1,5 @@
 using System.Data.Common;
+using Microsoft.EntityFrameworkCore;
 using ToDoList.Domain.Entities;
 using ToDoList.Domain.interfaces;
 using ToDoList.Infrastructure.Data;
@@ -24,5 +25,10 @@ public class TarefaRepository : ITarefaRepository
     {
         _db.Tarefas.Add(tarefa);
         await _db.SaveChangesAsync();
+    }
+
+    public async Task<Tarefa> ObterTarefaPorIdAsync(int idTarefa)
+    {
+        return await _db.Tarefas.FirstOrDefaultAsync(q => q.Id == idTarefa);
     }
 }

@@ -10,16 +10,45 @@ public class TarefaService : ITarefaService
 {
     private readonly ITarefaRepository _tarefaRepository;
     private readonly IMapper _mapper;
+    private readonly ICacheRepository _cacheRepository;
 
-    public TarefaService(ITarefaRepository tarefaRepository, IMapper mapper)
+    public TarefaService(ITarefaRepository tarefaRepository, IMapper mapper, ICacheRepository cacheRepository)
     {
         _tarefaRepository = tarefaRepository;
         _mapper = mapper;
+        _cacheRepository = cacheRepository;
     }
 
-    public Task<ServiceResponse<TarefaDto>> ConcluirTarefaAsync(int idTarefa)
+    public async Task<ServiceResponse<TarefaDto>> ConcluirTarefaAsync(int idTarefa)
     {
-        throw new NotImplementedException();
+        var serviceResponse = new ServiceResponse<TarefaDto>();
+
+        try
+        {
+            var tarefa = await _tarefaRepository.ObterTarefaPorIdAsync(idTarefa);
+
+            if (tarefa is null)
+            {
+                serviceResponse.Mensagem = "Não existe Tarefa com esse Id";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+            tarefa.ConcluirTarefa();
+            await _tarefaRepository.AtualizarAsync(tarefa);
+            //await _cacheRepository.SetAsync($"{tarefa.Id}", tarefa);
+
+            serviceResponse.Dados = _mapper.Map<TarefaDto>(tarefa);
+            serviceResponse.Mensagem = "Tarefa criada com sucesso";
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Dados = null;
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
     }
 
     public async Task<ServiceResponse<TarefaDto>> CriarTarefaAsync(TarefaDto tarefaDto)
