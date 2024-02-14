@@ -14,5 +14,5 @@ public record ListaDto
     [DisplayName("Nome da lista")]
     public string Nome { get; set; }
 
-    //public List<TarefaDto> Tarefas { get; set; } = new List<TarefaDto>();
+    public List<TarefaDto> Tarefas { get; set; } = new List<TarefaDto>();
 }

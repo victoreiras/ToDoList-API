@@ -18,6 +18,7 @@ public class Tarefa
     public DateTime DataConclusao { get; private set; }
     public bool Concluida { get; private set; } = false;
     public bool Recorrente { get; private set; } = false;
+    public Lista Lista { get; private set; }
 
     public void AlterarNome(string nome)
     {
