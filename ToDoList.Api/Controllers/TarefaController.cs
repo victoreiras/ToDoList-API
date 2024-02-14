@@ -22,10 +22,17 @@ public class TarefaController : ControllerBase
         return Ok(tarefaCriada);
     }
 
-    [HttpPost(Name = "concluirTarefa")]
+    [HttpPut(Name = "concluirTarefa")]
     public async Task<IActionResult> ConcluirTarefa(int idTarefa)
     {
         var tarefaConcluida = await _tarefaService.ConcluirTarefaAsync(idTarefa);
         return Ok(tarefaConcluida);
+    }
+
+    [HttpPut(Name = "editarTarefa")]
+    public async Task<IActionResult> EditarTarefa(TarefaDto tarefaDto)
+    {
+        var tarefaEditada = await _tarefaService.EditarTarefaAsync(tarefaDto);
+        return Ok(tarefaEditada);
     }
 }

@@ -80,9 +80,33 @@ public class TarefaService : ITarefaService
         return serviceResponse;
     }
 
-    public Task<ServiceResponse<TarefaDto>> EditarTarefaAsync(TarefaDto tarefaDto)
+    public async Task<ServiceResponse<TarefaDto>> EditarTarefaAsync(TarefaDto tarefaDto)
     {
-        throw new NotImplementedException();
+        var serviceResponse = new ServiceResponse<TarefaDto>();
+
+        try
+        {
+            if (tarefaDto is null)
+            {
+                serviceResponse.Mensagem = "Parâmetros inválidos";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+            var tarefa = _mapper.Map<Tarefa>(tarefaDto);
+            await _tarefaRepository.AtualizarAsync(tarefa);
+
+            serviceResponse.Dados = tarefaDto;
+            serviceResponse.Mensagem = "Tarefa criada com sucesso";
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Dados = null;
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
     }
 
     public Task<ServiceResponse<bool>> ExcluirTarefaAsync(int idTarefa)
