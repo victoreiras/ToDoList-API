@@ -15,4 +15,6 @@ public record ListaDto
     public string Nome { get; set; }
 
     public List<TarefaDto> Tarefas { get; set; } = new List<TarefaDto>();
+
+    public UsuarioDto UsuarioDto { get; set; }
 }

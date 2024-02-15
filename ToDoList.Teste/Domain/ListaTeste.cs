@@ -10,7 +10,10 @@ public class ListaTeste
     public ListaTeste()
     {
         //Arrange
-        _lista = new Lista("Lista Teste");
+        var senhaHash = System.Text.Encoding.UTF8.GetBytes("senhaHash");
+        var senhaSalt = System.Text.Encoding.UTF8.GetBytes("senhaSalt");
+        var usuario = new Usuario("Victor", "victor.eiras@gmail.com", senhaHash, senhaSalt);
+        _lista = new Lista("Lista Teste", usuario);
         _lista.AdicionarTarefa(new Tarefa("Tarefa 1"));
         _lista.AdicionarTarefa(new Tarefa("Tarefa 2"));
         _lista.AdicionarTarefa(new Tarefa("Tarefa 3"));

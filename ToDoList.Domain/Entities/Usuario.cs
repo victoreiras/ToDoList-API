@@ -16,4 +16,5 @@ public class Usuario
     public byte[] SenhaHash { get; private set; }
     public byte[] SenhaSalt { get; private set; }
     public DateTime TokenDataCriacao { get; private set; } = DateTime.Now;
+    public List<Lista> Listas { get; private set; } = new List<Lista>();
 }

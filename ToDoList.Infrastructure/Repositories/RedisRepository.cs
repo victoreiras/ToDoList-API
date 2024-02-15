@@ -26,6 +26,11 @@ public class RedisRepository : ICacheRepository
         return JsonSerializer.Deserialize<T>(value);
     }
 
+    public async Task RemoveAsync(string key)
+    {
+        await _cache.RemoveAsync(key);
+    }
+
     public async Task SetAsync<T>(string key, T value)
     {
         var jsonValue = JsonSerializer.Serialize(value);

@@ -2,15 +2,17 @@ namespace ToDoList.Domain.Entities;
 
 public class Lista
 {
-    public Lista(string nome)
+    public Lista(string nome, Usuario usuario)
     {
         Nome = nome;
+        Usuario = usuario;
     }
 
     public int Id { get; private set; }
     public string Nome { get; private set; }
     public DateTime DataCriacao { get; private set; } = DateTime.Now;
     public List<Tarefa> Tarefas { get; private set; } = new List<Tarefa>();
+    public Usuario Usuario { get; private set; }
 
     public void AdicionarTarefa(Tarefa tarefa)
     {

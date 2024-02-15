@@ -25,9 +25,9 @@ public class ListaController : ControllerBase
     }
 
     [HttpPost(Name = "criarLista")]
-    public async Task<IActionResult> CriarListaAsync(string nome)
+    public async Task<IActionResult> CriarListaAsync(ListaDto listaDto)
     {
-        var listaCriada = await _listaService.CriarListaAsync(nome);
+        var listaCriada = await _listaService.CriarListaAsync(listaDto);
         return Ok(listaCriada);
     }
 

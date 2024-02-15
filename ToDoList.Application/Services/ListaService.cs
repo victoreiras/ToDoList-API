@@ -3,7 +3,6 @@ using ToDoList.Domain.interfaces;
 using ToDoList.Application.Interfaces;
 using AutoMapper;
 using ToDoList.Domain.Entities;
-using System.Net;
 
 namespace ToDoList.Application.Services;
 
@@ -20,22 +19,24 @@ public class ListaService : IListaService
         _cacheRepository = cacheRepository;
     }
 
-    public async Task<ServiceResponse<ListaDto>> CriarListaAsync(string nome)
+    public async Task<ServiceResponse<ListaDto>> CriarListaAsync(ListaDto listaDto)
     {
         var serviceResponse = new ServiceResponse<ListaDto>();
 
         try
         {
-            if (string.IsNullOrEmpty(nome))
+            if ((listaDto is null))
             {
                 serviceResponse.Mensagem = "Nome não pode ser nulo ou vazio.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
 
-            var lista = new Lista(nome);
+            var usuario = _mapper.Map<Usuario>(listaDto.UsuarioDto);
+            var lista = new Lista(listaDto.Nome, usuario);
+
             await _listaRepository.CriarAsync(lista);
-            await _cacheRepository.SetAsync($"{lista.Id}", lista);
+            _cacheRepository.SetAsync($"usuarioListas:{lista.Usuario.Id}", lista);
 
             serviceResponse.Dados = _mapper.Map<ListaDto>(lista);
             serviceResponse.Mensagem = "Lista criada com sucesso!";
@@ -65,7 +66,7 @@ public class ListaService : IListaService
 
             var lista = _mapper.Map<Lista>(listaDto);
             await _listaRepository.AtualizarAsync(lista);
-            await _cacheRepository.SetAsync($"{lista.Id}", lista);
+            _cacheRepository.RemoveAsync($"usuarioListas:{lista.Usuario.Id}");
 
             serviceResponse.Dados = listaDto;
             serviceResponse.Mensagem = "Lista atualizada com sucesso!";
@@ -94,8 +95,9 @@ public class ListaService : IListaService
                 return serviceResponse;
             }
 
+            //await _tarefaRepository.ExcluirTarefaAsync()
             await _listaRepository.RemoverAsync(lista);
-            //await _cacheRepository.remover();
+            _cacheRepository.RemoveAsync($"usuarioListas:{lista.Usuario.Id}");
 
             serviceResponse.Mensagem = "Lista excluída com sucesso!";
         }
@@ -114,10 +116,13 @@ public class ListaService : IListaService
 
         try
         {
-            var resultado = await _cacheRepository.GetAsync<List<Lista>>(idUsuario.ToString());
+            var resultado = await _cacheRepository.GetAsync<List<Lista>>($"usuarioListas:{idUsuario}");
 
             if (resultado is null)
+            {
                 resultado = await _listaRepository.ObterListasDoUsuarioAsync(idUsuario);
+                _cacheRepository.SetAsync($"usuarioListas:{idUsuario}", resultado);
+            }
 
             serviceResponse.Dados = _mapper.Map<List<ListaDto>>(resultado);
         }
