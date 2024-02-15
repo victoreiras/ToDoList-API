@@ -15,28 +15,28 @@ public class TarefaController : ControllerBase
         _tarefaService = tarefaService;
     }
 
-    [HttpPost(Name = "criarTarefa")]
+    [HttpPost("criarTarefa")]
     public async Task<IActionResult> CriarTarefa(TarefaDto tarefaDto)
     {
         var tarefaCriada = await _tarefaService.CriarTarefaAsync(tarefaDto);
         return Ok(tarefaCriada);
     }
 
-    [HttpPut(Name = "concluirTarefa")]
+    [HttpPut("concluirTarefa")]
     public async Task<IActionResult> ConcluirTarefa(int idTarefa)
     {
         var tarefaConcluida = await _tarefaService.ConcluirTarefaAsync(idTarefa);
         return Ok(tarefaConcluida);
     }
 
-    [HttpPut(Name = "editarTarefa")]
+    [HttpPut("editarTarefa")]
     public async Task<IActionResult> EditarTarefa(TarefaDto tarefaDto)
     {
         var tarefaEditada = await _tarefaService.EditarTarefaAsync(tarefaDto);
         return Ok(tarefaEditada);
     }
 
-    [HttpDelete(Name = "excluirTarefa")]
+    [HttpDelete("excluirTarefa")]
     public async Task<IActionResult> ExcluirTarefa(int idTarefa)
     {
         await _tarefaService.ExcluirTarefaAsync(idTarefa);
