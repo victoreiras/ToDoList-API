@@ -21,9 +21,12 @@ public static class ServiceExtensions
 
         services.AddScoped<IListaRepository, ListaRepository>();
         services.AddScoped<IListaService, ListaService>();
+        services.AddScoped<ITarefaRepository, TarefaRepository>();
+        services.AddScoped<ITarefaService, TarefaService>();
         services.AddScoped<ICacheRepository, RedisRepository>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+        services.AddScoped<ISenhaService, SenhaService>();
 
         services.AddAutoMapper(typeof(DomainToDtoMapping),
             typeof(DtoToDomainMapping));
