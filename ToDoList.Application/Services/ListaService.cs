@@ -25,9 +25,9 @@ public class ListaService : IListaService
 
         try
         {
-            if ((listaDto is null))
+            if (listaDto is null)
             {
-                serviceResponse.Mensagem = "Nome não pode ser nulo ou vazio.";
+                serviceResponse.Mensagem = "Lista não pode ser vazia.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
@@ -57,14 +57,17 @@ public class ListaService : IListaService
 
         try
         {
-            if (listaDto is null)
+            var lista = await _listaRepository.ObterListaPorIdAsync(listaDto.Id);
+
+            if (lista is null)
             {
-                serviceResponse.Mensagem = "Lista não pode ser nula.";
+                serviceResponse.Mensagem = "Lista não encontrada.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
 
-            var lista = _mapper.Map<Lista>(listaDto);
+            lista.AlterarNome(listaDto.Nome);
+
             await _listaRepository.AtualizarAsync(lista);
             _cacheRepository.RemoveAsync($"usuarioListas:{lista.Usuario.Id}");
 
@@ -90,12 +93,11 @@ public class ListaService : IListaService
 
             if (lista is null)
             {
-                serviceResponse.Mensagem = "Lista inválida!";
+                serviceResponse.Mensagem = "Lista não encontrada.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
 
-            //await _tarefaRepository.ExcluirTarefaAsync()
             await _listaRepository.RemoverAsync(lista);
             _cacheRepository.RemoveAsync($"usuarioListas:{lista.Usuario.Id}");
 
@@ -116,15 +118,15 @@ public class ListaService : IListaService
 
         try
         {
-            var resultado = await _cacheRepository.GetAsync<List<Lista>>($"usuarioListas:{idUsuario}");
+            var listas = await _cacheRepository.GetAsync<List<Lista>>($"usuarioListas:{idUsuario}");
 
-            if (resultado is null)
+            if (listas is null)
             {
-                resultado = await _listaRepository.ObterListasDoUsuarioAsync(idUsuario);
-                _cacheRepository.SetAsync($"usuarioListas:{idUsuario}", resultado);
+                listas = await _listaRepository.ObterListasDoUsuarioAsync(idUsuario);
+                _cacheRepository.SetAsync($"usuarioListas:{idUsuario}", listas);
             }
 
-            serviceResponse.Dados = _mapper.Map<List<ListaDto>>(resultado);
+            serviceResponse.Dados = _mapper.Map<List<ListaDto>>(listas);
         }
         catch (Exception ex)
         {
