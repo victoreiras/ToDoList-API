@@ -29,7 +29,7 @@ public class TarefaService : ITarefaService
 
             if (tarefa is null)
             {
-                serviceResponse.Mensagem = "Não existe Tarefa com esse Id";
+                serviceResponse.Mensagem = "Tarefa não encontrada.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
@@ -86,14 +86,17 @@ public class TarefaService : ITarefaService
 
         try
         {
-            if (tarefaDto is null)
+            var tarefa = await _tarefaRepository.ObterTarefaPorIdAsync(tarefaDto.Id);
+
+            if (tarefa is null)
             {
-                serviceResponse.Mensagem = "Parâmetros inválidos";
+                serviceResponse.Mensagem = "Tarefa não encontrada.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
 
-            var tarefa = _mapper.Map<Tarefa>(tarefaDto);
+            tarefa.AlterarNome(tarefaDto.Nome);
+            
             await _tarefaRepository.AtualizarAsync(tarefa);
 
             serviceResponse.Dados = tarefaDto;
@@ -119,7 +122,7 @@ public class TarefaService : ITarefaService
 
             if (tarefa is null)
             {
-                serviceResponse.Mensagem = "Não existe Tarefa com esse Id";
+                serviceResponse.Mensagem = "Tarefa não encontrada.";
                 serviceResponse.Sucesso = false;
                 return serviceResponse;
             }
