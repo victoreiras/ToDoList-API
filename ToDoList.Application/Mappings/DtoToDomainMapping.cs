@@ -9,5 +9,6 @@ public class DtoToDomainMapping : Profile
     public DtoToDomainMapping()
     {
         CreateMap<ListaDto, Lista>();
+        CreateMap<TarefaDto, Tarefa>();
     }
 }
